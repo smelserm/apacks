@@ -1,4 +1,4 @@
-.PHONY: build run test clean deps lint format docker-build docker-run
+.PHONY: build run test clean deps lint format docker-build docker-run docker-clean docker-up
 
 # Build variables
 BINARY_NAME=apacks-server
@@ -56,12 +56,22 @@ vet:
 # Build Docker image
 docker-build:
 	@echo "Building Docker image..."
-	cd backend && docker build -t $(BINARY_NAME) .
+	./containers/build.sh --build
 
 # Run Docker container
 docker-run:
 	@echo "Running Docker container..."
-	docker run -p 8080:8080 $(BINARY_NAME)
+	./containers/build.sh --run
+
+# Clean Docker containers
+docker-clean:
+	@echo "Cleaning Docker containers..."
+	./containers/build.sh --clean
+
+# Build and run Docker container
+docker-up:
+	@echo "Building and running Docker container..."
+	./containers/build.sh
 
 # Development setup
 dev-setup: deps format lint test
