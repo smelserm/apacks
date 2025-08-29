@@ -55,44 +55,44 @@ vet:
 # Development setup
 dev-setup: deps format lint test
 
-# Frontend commands
-frontend-install:
-	@echo "Installing frontend dependencies..."
-	cd frontend && npm install
+# Client commands
+client-install:
+	@echo "Installing client dependencies..."
+	cd client && npm install
 
-frontend-start:
-	@echo "Starting React frontend..."
-	cd frontend && npm start
+client-start:
+	@echo "Starting React client..."
+	cd client && npm start
 
-frontend-build:
-	@echo "Building React frontend..."
-	cd frontend && npm run build
+client-build:
+	@echo "Building React client..."
+	cd client && npm run build
 
-# Development with both backend and frontend
-dev: frontend-install
+# Development with both backend and client
+dev: client-install
 	@echo "Starting development environment..."
 	./scripts/dev.sh
 
 # Production build
-prod-build: clean build frontend-build
+prod-build: clean build client-build
 
 # Build Docker image
 docker-build-apacks-server:
 	@echo "Building Docker image..."
-	./containers/backend/apacks-server/build.sh --build
+	../../containers/backend/apacks-server/build.sh --build
 
 # Run Docker container
 docker-run-apacks-server:
 	@echo "Running Docker container..."
-	./containers/backend/apacks-server/build.sh --run
+	../../containers/backend/apacks-server/build.sh --run
 
 # Clean Docker containers
 docker-clean-apacks-server:
 	@echo "Cleaning Docker containers..."
-	./containers/backend/apacks-server/build.sh --clean
+	../../containers/backend/apacks-server/build.sh --clean
 
 # Build and run Docker container
 docker-up-apacks-server:
 	@echo "Building and running Docker container..."
-	./containers/backend/apacks-server/build.sh
+	../../containers/backend/apacks-server/build.sh
 

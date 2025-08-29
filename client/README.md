@@ -1,6 +1,6 @@
-# Apacks Frontend
+# Apacks Client
 
-A modern React frontend for the Apacks user management system.
+A modern React client for the Apacks user management system.
 
 ## Features
 
@@ -21,9 +21,9 @@ A modern React frontend for the Apacks user management system.
 
 ### Installation
 
-1. Navigate to the frontend directory:
+1. Navigate to the client directory:
 ```bash
-cd frontend
+cd client
 ```
 
 2. Install dependencies:
@@ -48,7 +48,7 @@ The app will open at [http://localhost:3000](http://localhost:3000).
 ## Project Structure
 
 ```
-frontend/
+client/
 ├── public/
 │   └── index.html          # Main HTML file
 ├── src/
@@ -70,7 +70,7 @@ frontend/
 
 ## API Integration
 
-The frontend communicates with the Go backend API:
+The client communicates with the Go backend API:
 
 - **Base URL**: `http://localhost:8080`
 - **API Endpoints**:
@@ -124,14 +124,14 @@ This creates a `build` folder with optimized files.
 
 ### Docker Deployment
 
-The frontend can be deployed using Docker:
+The client can be deployed using Docker:
 
 ```bash
 # Build image
-docker build -t apacks-frontend .
+docker build -t apacks-client .
 
 # Run container
-docker run -p 3000:3000 apacks-frontend
+docker run -p 3000:3000 apacks-client
 ```
 
 ## Troubleshooting

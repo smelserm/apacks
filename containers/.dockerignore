@@ -33,7 +33,7 @@ tests/
 bin/
 *.exe
 
-# Node.js (if building frontend separately)
+# Node.js (if building client separately)
 node_modules/
 npm-debug.log*
 

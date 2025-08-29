@@ -54,6 +54,6 @@ coverage.html
 tmp/
 temp/
 
-# Frontend
+# Client
 node_modules/
 build/

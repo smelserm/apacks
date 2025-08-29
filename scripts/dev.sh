@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Development script to run both backend and frontend
+# Development script to run both backend and client
 
 set -e
 
@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 echo -e "${GREEN}Starting Apacks Development Environment${NC}"
-echo -e "${YELLOW}This will start both the Go backend and React frontend${NC}"
+echo -e "${YELLOW}This will start both the Go backend and React client${NC}"
 echo ""
 
 # Check if Go is installed
@@ -32,22 +32,22 @@ if ! command -v npm &> /dev/null; then
     exit 1
 fi
 
-echo -e "${BLUE}Installing frontend dependencies...${NC}"
-cd frontend
+echo -e "${BLUE}Installing client dependencies...${NC}"
+cd client
 npm install
 cd ..
 
 echo ""
 echo -e "${GREEN}Starting services...${NC}"
 echo -e "${YELLOW}Backend will run on: http://localhost:8080${NC}"
-echo -e "${YELLOW}Frontend will run on: http://localhost:3000${NC}"
+echo -e "${YELLOW}Client will run on: http://localhost:3000${NC}"
 echo ""
 
 # Function to cleanup background processes
 cleanup() {
     echo ""
     echo -e "${YELLOW}Shutting down services...${NC}"
-    kill $BACKEND_PID $FRONTEND_PID 2>/dev/null || true
+    kill $BACKEND_PID $CLIENT_PID 2>/dev/null || true
     exit 0
 }
 
@@ -62,11 +62,11 @@ BACKEND_PID=$!
 # Wait a moment for backend to start
 sleep 2
 
-# Start frontend in background
-echo -e "${BLUE}Starting React frontend...${NC}"
-cd frontend
+# Start client in background
+echo -e "${BLUE}Starting React client...${NC}"
+cd client
 npm start &
-FRONTEND_PID=$!
+CLIENT_PID=$!
 cd ..
 
 echo ""
@@ -75,4 +75,4 @@ echo -e "${YELLOW}Press Ctrl+C to stop both services${NC}"
 echo ""
 
 # Wait for both processes
-wait $BACKEND_PID $FRONTEND_PID
+wait $BACKEND_PID $CLIENT_PID

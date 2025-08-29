@@ -40,7 +40,7 @@ const Home = () => {
           <li>Secure JWT Authentication</li>
           <li>User Profile Management</li>
           <li>RESTful API</li>
-          <li>Modern React Frontend</li>
+          <li>Modern React Client</li>
           <li>Go Backend with Gin Framework</li>
         </ul>
       </div>

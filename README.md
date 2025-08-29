@@ -23,13 +23,13 @@ apacks
 │   ├── auth/           # Authentication utilities
 │   ├── logger/         # Logging package
 │   └── validator/      # Validation utilities
-├── frontend/           # React frontend application
+├── client/           # React client application
 │   ├── public/         # Static files
 │   ├── src/            # React source code
 │   │   ├── components/ # React components
 │   │   ├── context/    # React context
 │   │   └── ...         # Other React files
-│   └── package.json    # Frontend dependencies
+│   └── package.json    # Client dependencies
 ├── api/                # API documentation
 │   └── v1/
 ├── docs/               # Project documentation
@@ -55,7 +55,7 @@ apacks
 - **CORS Support**: Cross-Origin Resource Sharing middleware
 - **Health Checks**: Built-in health check endpoints
 - **Error Handling**: Comprehensive error handling and recovery
-- **React Frontend**: Modern web interface with React 18
+- **React Client**: Modern web interface with React 18
 - **Responsive Design**: Mobile-friendly UI with modern CSS
 - **Client-Side Routing**: React Router for seamless navigation
 
@@ -66,7 +66,7 @@ apacks
 #### Option 1: Local Development
 - go 1.25.0 or higher
 - PostgreSQL database
-- Node.js 16+ and npm (for frontend)
+- Node.js 16+ and npm (for client)
 - Make (optional, for build scripts)
 
 #### Option 2: Dev Container (Recommended)
@@ -104,9 +104,9 @@ cd apacks
 go mod tidy
 ```
 
-3. Install frontend dependencies:
+3. Install client dependencies:
 ```bash
-cd frontend
+cd client
 npm install
 cd ..
 ```
@@ -122,9 +122,9 @@ cp env.example .env
 go run backend/cmd/server/main.go
 ```
 
-6. Start the React frontend (in a new terminal):
+6. Start the React client (in a new terminal):
 ```bash
-cd frontend
+cd client
 npm start
 ```
 
@@ -160,15 +160,15 @@ JWT_SECRET=your-secret-key
 
 - `GET /api/v1/user` - Get user information (requires JWT token)
 
-## Frontend
+## Client
 
-The React frontend provides a modern web interface for the application:
+The React client provides a modern web interface for the application:
 
 - **URL**: http://localhost:3000
 - **Features**: User authentication, profile display, responsive design
 - **Tech Stack**: React 18, React Router, Context API, modern CSS
 
-See [frontend/README.md](frontend/README.md) for detailed frontend documentation.
+See [client/README.md](client/README.md) for detailed client documentation.
 
 ## Development
 
@@ -179,7 +179,7 @@ If using the dev container, simply run:
 make dev
 ```
 
-This will start both the Go backend and React frontend automatically.
+This will start both the Go backend and React client automatically.
 
 ### Running Tests
 
@@ -193,8 +193,8 @@ cd backend/apacks-server && go test -cover ./...
 # Run specific test
 cd backend/apacks-server && go test ./internal/handlers
 
-# Run frontend tests
-cd frontend && npm test
+# Run client tests
+cd client && npm test
 ```
 
 ### Building

@@ -1,5 +1,5 @@
 {
-  "name": "apacks-frontend",
+  "name": "apacks-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
