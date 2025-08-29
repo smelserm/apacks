@@ -3,8 +3,8 @@ package database
 import (
 	"fmt"
 
-	"github.com/smelserm/apacks/backend/apacks-server/internal/config"
-	"github.com/smelserm/apacks/backend/apacks-server/internal/models"
+	"github.com/smelserm/apacks/internal/config"
+	"github.com/smelserm/apacks/internal/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

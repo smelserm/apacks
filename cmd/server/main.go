@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/smelserm/apacks/backend/apacks-server/internal/api"
-	"github.com/smelserm/apacks/backend/apacks-server/internal/config"
-	"github.com/smelserm/apacks/backend/apacks-server/pkg/logger"
+	"github.com/smelserm/apacks/internal/api"
+	"github.com/smelserm/apacks/internal/config"
+	"github.com/smelserm/apacks/pkg/logger"
 )
 
 func main() {

@@ -2,7 +2,7 @@ services:
   apacks-server:
     build:
       context: ../.
-      dockerfile: ./containers/backend/apacks-server/Dockerfile
+      dockerfile: ./containers/Dockerfile
     ports:
       - "8080:8080"
     environment:

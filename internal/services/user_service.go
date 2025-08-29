@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/smelserm/apacks/backend/apacks-server/internal/models"
-	"github.com/smelserm/apacks/backend/apacks-server/internal/repository"
+	"github.com/smelserm/apacks/internal/models"
+	"github.com/smelserm/apacks/internal/repository"
 )
 
 type UserService struct {

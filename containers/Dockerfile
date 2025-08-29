@@ -8,15 +8,15 @@ RUN apk add --no-cache git ca-certificates tzdata
 WORKDIR /app
 
 # Copy go mod and sum files
-COPY backend/apacks-server/go.mod backend/apacks-server/go.sum ./
+COPY go.mod go.sum ./
 
-COPY ./backend/apacks-server/go.mod ./backend/apacks-server/go.sum ./
+COPY ./go.mod ./go.sum ./
 
 # Download dependencies
 RUN go mod download
 
 # Copy the backend source code
-COPY ./backend/apacks-server ./
+COPY ./apacks-server ./
 
 # Build the application
 # CGO_ENABLED=0 for static linking (required for distroless)

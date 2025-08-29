@@ -6,7 +6,7 @@ A well-structured Go server application with clean architecture, following best 
 
 ```
 apacks
-|── backend/
+|── 
 ├── cmd/
 │   └── server/          # Application entry point
 ├── internal/            # Private application code
@@ -119,7 +119,7 @@ cp env.example .env
 
 5. Run the server:
 ```bash
-go run backend/cmd/server/main.go
+go run cmd/server/main.go
 ```
 
 6. Start the React client (in a new terminal):
@@ -185,13 +185,13 @@ This will start both the Go backend and React client automatically.
 
 ```bash
 # Run all tests
-cd backend/apacks-server && go test ./...
+go test ./...
 
 # Run tests with coverage
-cd backend/apacks-server && go test -cover ./...
+go test -cover ./...
 
 # Run specific test
-cd backend/apacks-server && go test ./internal/handlers
+go test ./internal/handlers
 
 # Run client tests
 cd client && npm test
@@ -201,23 +201,23 @@ cd client && npm test
 
 ```bash
 # Build for current platform
-cd backend/apacks-server && go build -o bin/server cmd/server/main.go
+go build -o bin/server cmd/server/main.go
 
 # Build for specific platform
-cd backend/apacks-server && GOOS=linux GOARCH=amd64 go build -o bin/server-linux cmd/server/main.go
+GOOS=linux GOARCH=amd64 go build -o bin/server-linux cmd/server/main.go
 ```
 
 ### Code Quality
 
 ```bash
 # Format code
-cd backend/apacks-server && go fmt ./...
+go fmt ./...
 
 # Run linter
-cd backend/apacks-server && golangci-lint run
+golangci-lint run
 
 # Run vet
-cd backend/apacks-server && go vet ./...
+go vet ./...
 ```
 
 ## Development Container

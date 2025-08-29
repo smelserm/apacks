@@ -1,4 +1,4 @@
-.PHONY: build run test clean deps lint format docker-build-apacks-server docker-run-apacks-server docker-clean-apacks-server docker-up
+.PHONY: build run test clean deps lint format docker-build docker-run docker-clean docker-up
 
 # Build variables
 BINARY_NAME=apacks-server
@@ -8,12 +8,12 @@ BUILD_DIR=bin
 build:
 	@echo "Building $(BINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	go build -o $(BUILD_DIR)/$(BINARY_NAME) backend/cmd/server/main.go
+	go build -o $(BUILD_DIR)/$(BINARY_NAME) cmd/server/main.go
 
 # Run the application
 run:
 	@echo "Running $(BINARY_NAME)..."
-	go run backend/cmd/server/main.go
+	go run cmd/server/main.go
 
 # Run tests
 test:
@@ -77,22 +77,22 @@ dev: client-install
 prod-build: clean build client-build
 
 # Build Docker image
-docker-build-apacks-server:
+docker-build:
 	@echo "Building Docker image..."
-	../../containers/backend/apacks-server/build.sh --build
+	./containers/build.sh --build
 
 # Run Docker container
-docker-run-apacks-server:
+docker-run:
 	@echo "Running Docker container..."
-	../../containers/backend/apacks-server/build.sh --run
+	./containers/build.sh --run
 
 # Clean Docker containers
-docker-clean-apacks-server:
+docker-clean:
 	@echo "Cleaning Docker containers..."
-	../../containers/backend/apacks-server/build.sh --clean
+	./containers/build.sh --clean
 
 # Build and run Docker container
-docker-up-apacks-server:
+docker-up:
 	@echo "Building and running Docker container..."
-	../../containers/backend/apacks-server/build.sh
+	./containers/build.sh
 

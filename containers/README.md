@@ -25,16 +25,16 @@ The easiest way to build and run the container is using the provided build scrip
 
 ```bash
 # Build and run (default)
-./containers/backend/apacks-server/build.sh
+./containers/build.sh
 
 # Build only
-./containers/backend/apacks-server/build.sh --build
+./containers/build.sh --build
 
 # Run only (builds if image doesn't exist)
-./containers/backend/apacks-server/build.sh --run
+./containers/build.sh --run
 
 # Clean up containers
-./containers/backend/apacks-server/build.sh --clean
+./containers/build.sh --clean
 ```
 
 ### Using Docker Compose
@@ -54,7 +54,7 @@ docker-compose --project-name apacks/ -f containers/docker-compose.yml down
 
 ```bash
 # Build the image
-docker build -t apacks-server -f containers/backend/apacks-server/Dockerfile .
+docker build -t apacks-server -f containers/Dockerfile .
 
 # Run the container
 docker run -d -p 8080:8080 --name apacks-server apacks-server
