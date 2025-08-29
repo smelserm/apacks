@@ -4,7 +4,8 @@ import (
 	"errors"
 	"net/http"
 
-    "apacks/pkg/logger"
+	"github.com/smelserm/apacks/backend/pkg/logger"
+
 	"github.com/gin-gonic/gin"
 )
 

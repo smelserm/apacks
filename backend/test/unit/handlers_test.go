@@ -5,7 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"apacks/internal/handlers"
+	"github.com/smelserm/apacks/backend/internal/handlers"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"

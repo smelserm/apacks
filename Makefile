@@ -36,7 +36,7 @@ clean:
 # Install dependencies
 deps:
 	@echo "Installing dependencies..."
-	cd backend && go mod tidy && go mod download
+	go mod tidy && go mod download
 	
 # Run linter
 lint:

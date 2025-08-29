@@ -3,10 +3,10 @@ package api
 import (
 	"fmt"
 
-	"apacks/internal/config"
-	"apacks/internal/handlers"
-	"apacks/internal/middleware"
-	"apacks/pkg/logger"
+	"github.com/smelserm/apacks/backend/internal/config"
+	"github.com/smelserm/apacks/backend/internal/handlers"
+	"github.com/smelserm/apacks/backend/internal/middleware"
+	"github.com/smelserm/apacks/backend/pkg/logger"
 
 	"github.com/gin-gonic/gin"
 )

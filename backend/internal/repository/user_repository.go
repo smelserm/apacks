@@ -1,7 +1,8 @@
 package repository
 
 import (
-	"apacks/internal/models"
+	"github.com/smelserm/apacks/backend/internal/models"
+
 	"gorm.io/gorm"
 )
 
