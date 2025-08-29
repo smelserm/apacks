@@ -8,7 +8,7 @@ BUILD_DIR=bin
 build:
 	@echo "Building $(BINARY_NAME)..."
 	@mkdir -p $(BUILD_DIR)
-	go build -o $(BUILD_DIR)/$(BINARY_NAME) backendcmd/server/main.go
+	go build -o $(BUILD_DIR)/$(BINARY_NAME) backend/cmd/server/main.go
 
 # Run the application
 run:

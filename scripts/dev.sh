@@ -56,7 +56,7 @@ trap cleanup SIGINT SIGTERM
 
 # Start backend in background
 echo -e "${BLUE}Starting Go backend...${NC}"
-go run cmd/server/main.go &
+go run backend/cmd/server/main.go &
 BACKEND_PID=$!
 
 # Wait a moment for backend to start

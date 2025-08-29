@@ -38,7 +38,7 @@ LDFLAGS="-X main.Version=${VERSION} -X main.BuildTime=${BUILD_TIME} -X main.Comm
 
 # Build for macOS
 echo -e "${GREEN}Building for macOS...${NC}"
-GOOS=darwin GOARCH=amd64 go build -ldflags "${LDFLAGS}" -o ${BUILD_DIR}/${BINARY_NAME}-darwin-amd64 cmd/server/main.go
+GOOS=darwin GOARCH=amd64 go build -ldflags "${LDFLAGS}" -o ${BUILD_DIR}/${BINARY_NAME}-darwin-amd64 backend/cmd/server/main.go
 
 # # Build for Windows
 # echo -e "${GREEN}Building for Windows...${NC}"

@@ -2,9 +2,7 @@ package config
 
 import (
 	"os"
-
 	"apacks/pkg/logger"
-
 	"github.com/joho/godotenv"
 )
 
@@ -33,9 +31,12 @@ type JWTConfig struct {
 }
 
 func Load() (*Config, error) {
+	// Initialize logger
+	logger := logger.New()
+
 	// Load .env file if it exists
 	if err := godotenv.Load(); err != nil {
-		log.Error("Error loading .env file", "error", err)
+		logger.Error("Error loading .env file", err)
 	}
 
 	return &Config{
