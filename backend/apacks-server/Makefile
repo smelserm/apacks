@@ -18,12 +18,11 @@ run:
 # Run tests
 test:
 	@echo "Running tests..."
-	cd backend && go test -v ./...
+	go test -v ./...
 
 # Run tests with coverage
 test-coverage:
 	@echo "Running tests with coverage..."
-	cd backend
 	go test -v -coverprofile=coverage.out ./...
 	go tool cover -html=coverage.out
 
@@ -41,17 +40,17 @@ deps:
 # Run linter
 lint:
 	@echo "Running linter..."
-	cd backend && golangci-lint run
+	golangci-lint run
 
 # Format code
 format:
 	@echo "Formatting code..."
-	cd backend && go fmt ./...
+	go fmt ./...
 
 # Run vet
 vet:
 	@echo "Running vet..."
-	cd backend && go vet ./...
+	&& go vet ./...
 
 # Development setup
 dev-setup: deps format lint test
