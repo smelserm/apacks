@@ -55,5 +55,5 @@ tmp/
 temp/
 
 # Frontend
-node-modules/
+frontend/node_modules
 build/

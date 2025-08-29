@@ -3,7 +3,7 @@ package config
 import (
 	"os"
 
-	"github.com/apacks/backend/internal/logger"
+	"apacks/pkg/logger"
 
 	"github.com/joho/godotenv"
 )
