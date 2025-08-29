@@ -8,13 +8,15 @@ RUN apk add --no-cache git ca-certificates tzdata
 WORKDIR /app
 
 # Copy go mod and sum files
-COPY ../go.mod ../go.sum ./
+COPY backend/apacks-server/go.mod backend/apacks-server/go.sum ./
+
+COPY ./backend/apacks-server/go.mod ./backend/apacks-server/go.sum ./
 
 # Download dependencies
 RUN go mod download
 
 # Copy the backend source code
-COPY ../backend ./backend
+COPY ./backend/apacks-server ./
 
 # Build the application
 # CGO_ENABLED=0 for static linking (required for distroless)
@@ -22,7 +24,7 @@ COPY ../backend ./backend
 RUN CGO_ENABLED=0 GOOS=linux go build \
     -ldflags="-w -s" \
     -o apacks-server \
-    ./backend/cmd/server/main.go
+    ./cmd/server/main.go
 
 # Final stage using distroless
 FROM gcr.io/distroless/static-debian12

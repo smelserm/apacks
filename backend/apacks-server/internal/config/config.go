@@ -1,8 +1,9 @@
 package config
 
 import (
-	"github.com/smelserm/apacks/backend/pkg/logger"
 	"os"
+
+	"github.com/smelserm/apacks/backend/apacks-server/pkg/logger"
 
 	"github.com/joho/godotenv"
 )

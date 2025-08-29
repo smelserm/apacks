@@ -1,10 +1,8 @@
-version: '3.8'
-
 services:
   apacks-server:
     build:
-      context: ..
-      dockerfile: ./containers/Dockerfile
+      context: ../.
+      dockerfile: ./containers/backend/apacks-server/Dockerfile
     ports:
       - "8080:8080"
     environment:

@@ -1,11 +1,10 @@
-# Apacks Docker Setup
+# Apacks Docker Backend Setup
 
 This directory contains the Docker configuration for the Apacks Go application using a multistage build with distroless images.
 
 ## Files
 
 - `Dockerfile` - Multistage Dockerfile using Go 1.25.0 and distroless
-- `docker-compose.yml` - Docker Compose configuration for easy deployment
 - `.dockerignore` - Files to exclude from Docker build context
 - `build.sh` - Build script for easy Docker operations
 - `README.md` - This documentation
@@ -26,36 +25,36 @@ The easiest way to build and run the container is using the provided build scrip
 
 ```bash
 # Build and run (default)
-./containers/build.sh
+./containers/backend/apacks-server/build.sh
 
 # Build only
-./containers/build.sh --build
+./containers/backend/apacks-server/build.sh --build
 
 # Run only (builds if image doesn't exist)
-./containers/build.sh --run
+./containers/backend/apacks-server/build.sh --run
 
 # Clean up containers
-./containers/build.sh --clean
+./containers/backend/apacks-server/build.sh --clean
 ```
 
 ### Using Docker Compose
 
 ```bash
 # Build and run
-docker-compose -f containers/docker-compose.yml up --build
+docker-compose --project-name apacks/ -f containers/docker-compose.yml up --build
 
 # Run in background
-docker-compose -f containers/docker-compose.yml up -d --build
+docker-compose -f --project-name apacks containers/docker-compose.yml up -d --build
 
 # Stop and remove
-docker-compose -f containers/docker-compose.yml down
+docker-compose --project-name apacks/ -f containers/docker-compose.yml down
 ```
 
 ### Using Docker Directly
 
 ```bash
 # Build the image
-docker build -t apacks-server -f containers/Dockerfile .
+docker build -t apacks-server -f containers/backend/apacks-server/Dockerfile .
 
 # Run the container
 docker run -d -p 8080:8080 --name apacks-server apacks-server

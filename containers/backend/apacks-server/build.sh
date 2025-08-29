@@ -9,7 +9,7 @@ NC='\033[0m' # No Color
 # Configuration
 IMAGE_NAME="apacks-server"
 TAG="latest"
-CONTEXT_PATH=".."
+CONTEXT_PATH="../../../."
 DOCKERFILE_PATH="./Dockerfile"
 
 # Function to print colored output

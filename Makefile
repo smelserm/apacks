@@ -1,4 +1,4 @@
-.PHONY: build run test clean deps lint format docker-build docker-run docker-clean docker-up
+.PHONY: build run test clean deps lint format docker-build-apacks-server docker-run-apacks-server docker-clean-apacks-server docker-up
 
 # Build variables
 BINARY_NAME=apacks-server
@@ -53,26 +53,6 @@ vet:
 	@echo "Running vet..."
 	cd backend && go vet ./...
 
-# Build Docker image
-docker-build:
-	@echo "Building Docker image..."
-	./containers/build.sh --build
-
-# Run Docker container
-docker-run:
-	@echo "Running Docker container..."
-	./containers/build.sh --run
-
-# Clean Docker containers
-docker-clean:
-	@echo "Cleaning Docker containers..."
-	./containers/build.sh --clean
-
-# Build and run Docker container
-docker-up:
-	@echo "Building and running Docker container..."
-	./containers/build.sh
-
 # Development setup
 dev-setup: deps format lint test
 
@@ -96,3 +76,24 @@ dev: frontend-install
 
 # Production build
 prod-build: clean build frontend-build
+
+# Build Docker image
+docker-build-apacks-server:
+	@echo "Building Docker image..."
+	./containers/backend/apacks-server/build.sh --build
+
+# Run Docker container
+docker-run-apacks-server:
+	@echo "Running Docker container..."
+	./containers/backend/apacks-server/build.sh --run
+
+# Clean Docker containers
+docker-clean-apacks-server:
+	@echo "Cleaning Docker containers..."
+	./containers/backend/apacks-server/build.sh --clean
+
+# Build and run Docker container
+docker-up-apacks-server:
+	@echo "Building and running Docker container..."
+	./containers/backend/apacks-server/build.sh
+

@@ -185,13 +185,13 @@ This will start both the Go backend and React frontend automatically.
 
 ```bash
 # Run all tests
-go test ./...
+cd backend/apacks-server && go test ./...
 
 # Run tests with coverage
-go test -cover ./...
+cd backend/apacks-server && go test -cover ./...
 
 # Run specific test
-cd backend && go test ./internal/handlers
+cd backend/apacks-server && go test ./internal/handlers
 
 # Run frontend tests
 cd frontend && npm test
@@ -201,23 +201,23 @@ cd frontend && npm test
 
 ```bash
 # Build for current platform
-go build -o bin/server cmd/server/main.go
+cd backend/apacks-server && go build -o bin/server cmd/server/main.go
 
 # Build for specific platform
-GOOS=linux GOARCH=amd64 go build -o bin/server-linux cmd/server/main.go
+cd backend/apacks-server && GOOS=linux GOARCH=amd64 go build -o bin/server-linux cmd/server/main.go
 ```
 
 ### Code Quality
 
 ```bash
 # Format code
-go fmt ./...
+cd backend/apacks-server && go fmt ./...
 
 # Run linter
-golangci-lint run
+cd backend/apacks-server && golangci-lint run
 
 # Run vet
-go vet ./...
+cd backend/apacks-server && go vet ./...
 ```
 
 ## Development Container
