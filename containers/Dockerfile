@@ -10,13 +10,11 @@ WORKDIR /app
 # Copy go mod and sum files
 COPY go.mod go.sum ./
 
-COPY ./go.mod ./go.sum ./
-
 # Download dependencies
 RUN go mod download
 
 # Copy the backend source code
-COPY ./apacks-server ./
+COPY ./ ./
 
 # Build the application
 # CGO_ENABLED=0 for static linking (required for distroless)
