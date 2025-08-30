@@ -25,7 +25,8 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
     ./cmd/server/main.go
 
 # Final stage using distroless
-FROM gcr.io/distroless/static-debian12
+# FROM gcr.io/distroless/static-debian12
+FROM alpine:3.21.0
 
 # Copy the binary from builder stage
 COPY --from=builder /app/apacks-server /

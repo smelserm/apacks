@@ -91,8 +91,28 @@ docker-clean:
 	@echo "Cleaning Docker containers..."
 	./containers/build.sh --clean
 
+# Prune Docker
+docker-prune: docker-clean
+	@echo "Pruning Docker..."
+	docker system prune -f --all --volumes
+
 # Build and run Docker container
 docker-up:
 	@echo "Building and running Docker container..."
 	./containers/build.sh
+
+# Build and run
+compose-up:
+	@echo "Building and running Docker Compose..."
+	docker-compose --project-name apacks -f containers/docker-compose.yml up --build
+
+# Run in background
+compose-up-d:
+	@echo "Building and running Docker Compose in background..."
+	docker-compose --project-name apacks -f containers/docker-compose.yml up -d --build
+
+# Stop and remove
+compose-down:
+	@echo "Stopping and removing Docker Compose..."
+	docker-compose --project-name apacks -f containers/docker-compose.yml down
 

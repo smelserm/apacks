@@ -1,5 +1,9 @@
+version: '3.9'
 services:
   apacks-server:
+    # Allow the server to access the host machine
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     build:
       context: ../.
       dockerfile: ./containers/Dockerfile
@@ -9,7 +13,7 @@ services:
       - ENV=production
       # Add your environment variables here
       # - DATABASE_URL=your_database_url
-      # - JWT_SECRET=your_jwt_secret
+      - JWT_SECRET=thesecretkey
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080/health", "||", "exit", "1"]

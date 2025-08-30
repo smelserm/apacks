@@ -41,13 +41,13 @@ The easiest way to build and run the container is using the provided build scrip
 
 ```bash
 # Build and run
-docker-compose --project-name apacks/ -f containers/docker-compose.yml up --build
+docker-compose --project-name apacks -f containers/docker-compose.yml up --build
 
 # Run in background
-docker-compose -f --project-name apacks containers/docker-compose.yml up -d --build
+docker-compose --project-name apacks -f containers/docker-compose.yml up -d --build
 
 # Stop and remove
-docker-compose --project-name apacks/ -f containers/docker-compose.yml down
+docker-compose --project-name apacks -f containers/docker-compose.yml down
 ```
 
 ### Using Docker Directly
