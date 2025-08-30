@@ -11,6 +11,7 @@ services:
       - "8080:8080"
     environment:
       - ENV=production
+      - SERVER_HOST=0.0.0.0
       # Add your environment variables here
       # - DATABASE_URL=your_database_url
       - JWT_SECRET=thesecretkey
