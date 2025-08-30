@@ -79,17 +79,17 @@ prod-build: clean build client-build
 # Build Docker image
 docker-build:
 	@echo "Building Docker image..."
-	./containers/build.sh --build
+	cd containers && ./build.sh --build
 
 # Run Docker container
 docker-run:
 	@echo "Running Docker container..."
-	./containers/build.sh --run
+	cd containers && ./build.sh --run
 
 # Clean Docker containers
 docker-clean:
 	@echo "Cleaning Docker containers..."
-	./containers/build.sh --clean
+	cd containers && ./build.sh --clean
 
 # Prune Docker
 docker-prune: docker-clean
@@ -99,20 +99,20 @@ docker-prune: docker-clean
 # Build and run Docker container
 docker-up:
 	@echo "Building and running Docker container..."
-	./containers/build.sh
+	cd containers && ./build.sh
 
-# Build and run
+# Build and run with Docker Compose
 compose-up:
 	@echo "Building and running Docker Compose..."
-	docker-compose --project-name apacks -f containers/docker-compose.yml up --build
+	cd containers && docker-compose up --build
 
-# Run in background
+# Run in background with Docker Compose
 compose-up-d:
 	@echo "Building and running Docker Compose in background..."
-	docker-compose --project-name apacks -f containers/docker-compose.yml up -d --build
+	cd containers && docker-compose up -d --build
 
-# Stop and remove
+# Stop and remove Docker Compose
 compose-down:
 	@echo "Stopping and removing Docker Compose..."
-	docker-compose --project-name apacks -f containers/docker-compose.yml down
+	cd containers && docker-compose down
 
